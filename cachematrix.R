@@ -1,11 +1,11 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Function to create an diagonal matrix composed of 1's.
+## Function to create an identity matrix composed of 1's.
 ## The matrix crated here will be compared to the result of the
 ## multiplication betwen the matrix and its inverse
 
-createDiagonal <- function (m){
+createIdentity <- function (m){
 
 	## Create an empty matrix with the same size of one passed 
 	## as parameter
@@ -97,15 +97,15 @@ cacheSolve <- function(x, ...) {
 	{
 
 	## If it is not NULL, tests changes in the matrix by mutiplying
-	## it by its inverse and comparing it to a diagonal matrix	
+	## it by its inverse and comparing it to a identity matrix	
 
 		inverseTest <- x$getInverse () %*% x$get()
-		identity <- createDiagonal (x$get())
+		identity <- createIdentity (x$get())
 
 	## If there is no changes in the matrix, return the inverse.
 	## Else, continues the function 
 
-		if (all.equal(inverseTest ,identity) == TRUE)
+		if (all.equal(inverseTest, identity) == TRUE)
 		{
 			print ("Inverse already calculated")
 			return (m_inv)
